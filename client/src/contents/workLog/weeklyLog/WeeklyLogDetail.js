@@ -1,7 +1,5 @@
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
-// import Paper from "@material-ui/core/Paper";
-import { Link } from "react-router-dom";
 import queryString from "query-string";
 import { convertUTCTime } from "../../../util/utils";
 import ReactToPrint from "react-to-print";
@@ -25,10 +23,6 @@ class WeeklyLogDetail extends Component {
   componentDidMount() {
     this.callApi(this.props.location.search)
       .then((res) => {
-        // Object.entries(res).forEach(([key, value]) => {
-        //   console.log(key, value); // key ,value
-        // });
-
         if (res === null) {
           this.setState({ rows: [] });
         } else {
@@ -87,7 +81,7 @@ class WeeklyLogDetail extends Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value, // <- 변경 후
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -101,9 +95,7 @@ class WeeklyLogDetail extends Component {
             </div>
             <ReactToPrint
               trigger={() => {
-                // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
-                // to the root node of the returned component as it will be overwritten.
-                return <a href="#">PDF다운</a>;
+                return <a href="#!">PDF다운</a>;
               }}
               content={() => this.componentRef}
             />
@@ -116,7 +108,6 @@ class WeeklyLogDetail extends Component {
                 </div>
                 <div className="detail-body">
                   <div className="dt-info">
-                    {/* {this.stringToHTML('<h1>Hello world!</h1><p>How are you today?</p>')} */}
                     <table>
                       <tbody>
                         <tr>
@@ -199,28 +190,7 @@ class WeeklyLogDetail extends Component {
       </div>
     );
   }
-
-  // render() {
-  //   return (
-  //     <div>
-  //     <ReactToPrint
-  //       trigger={() => {
-  //         // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
-  //         // to the root node of the returned component as it will be overwritten.
-  //         return <a href="#">Print this out!</a>;
-  //       }}
-  //       content={() => this.componentRef}
-  //     />
-  //     <ComponentToPrint ref={el => (this.componentRef = el)} />
-  //   </div>
-  //   )
-  // }
 }
 
-class ComponentToPrint extends Component {
-  render() {
-    return <div>TEST</div>;
-  }
-}
 
 export default WeeklyLogDetail;

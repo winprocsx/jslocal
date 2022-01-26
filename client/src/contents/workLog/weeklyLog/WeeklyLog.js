@@ -19,7 +19,6 @@ import {
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
-// import saveAs from "file-saver";
 import ReactDOM from "react-dom";
 import { Button, Tooltip } from "@material-ui/core";
 import * as util from "../../../util/utils";
@@ -76,15 +75,6 @@ class WeeklyLog extends Component {
     return body;
   };
 
-  // onSave = (workbook) => {
-  //   workbook.xlsx.writeBuffer().then((buffer) => {
-  //     saveAs(
-  //       new Blob([buffer], { type: "application/octet-stream" }),
-  //       "여행_여행차수.xlsx"
-  //     );
-  //   });
-  // };
-
   ExportToggleButton = ({ onToggle, getMessage, buttonRef }) => {
     return this.state.excelElement
       ? ReactDOM.createPortal(
@@ -127,7 +117,6 @@ class WeeklyLog extends Component {
         );
       } else if (column.name === "name" || column.name === "login") {
         let now = util.dateFormat(new Date(), "%Y-%m-%d", false);
-        // let before = util.dateFormat(new Date(), "%Y%m%d%", false);
         let before = util.dateFormat(new Date(util.getDateBefore("d", 30)), "%Y-%m-%d", false);
 
         return (
@@ -168,11 +157,6 @@ class WeeklyLog extends Component {
         {this.state.rows.length > 0 ? (
           [
             <section className="content" style={{ position: "relative" }}>
-              {/* <div id="execelExport" className="btn-control">
-                <Link className="btn-add" to="/travel/nth/add">
-                  등록
-                </Link>
-              </div> */}
               <Paper>
                 <div
                   style={{
@@ -187,7 +171,6 @@ class WeeklyLog extends Component {
                   <Toolbar />
                   {/* 검색 */}
                   <SearchState className="search-Satste" defaultValue="" />
-                  {/* <Confirm confirmInfo={this.state.confirmInfo} confrimTarget ={this.state.confrimTarget} confirmed={this.confirmed}/> */}
                   <SearchPanel
                     className="search-Satste"
                     style={{ marginLeft: 200, backgroundColor: "#000000" }}

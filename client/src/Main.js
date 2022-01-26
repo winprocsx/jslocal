@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { AsyncStorage } from "AsyncStorage";
 import Head from "./layout/Head";
-// import LeftMenu from "./layout/LeftMenu";
 import Contents from "./layout/Contents";
 
 class Main extends Component {
