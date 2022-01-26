@@ -713,9 +713,9 @@ body {
   margin-right: 43px !important;
 }
 
-/* iframe {
-  display: none;
-} */
+iframe {
+  pointer-events: none;
+}
 
 pre {
   margin: 1em 1em 1em 1em;
@@ -729,6 +729,7 @@ pre {
   font-size: 12px;
   font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
 }
+
 
 @page {
   margin:15px;

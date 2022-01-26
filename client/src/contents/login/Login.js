@@ -80,7 +80,7 @@ class Login extends Component {
     return (
       <div className="login">
         <div className="login-form">
-          <h1> ADMIN</h1>
+          <h1> 장수업무관리 시스템</h1>
           <form onSubmit={this.submitForm} style={{ position: "relative" }}>
             <input
               type="text"
